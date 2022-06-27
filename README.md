@@ -1,17 +1,61 @@
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/hebertcisco/nestjs-rest-boilerplate)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/hebertcisco/nestjs-techniques-undici)
 
-[![Node.js CI](https://github.com/hebertcisco/nestjs-rest-boilerplate/actions/workflows/node.js.yml/badge.svg)](https://github.com/hebertcisco/nestjs-rest-boilerplate/actions/workflows/node.js.yml)
+[![Node.js CI](https://github.com/hebertcisco/nestjs-techniques-undici/actions/workflows/node.js.yml/badge.svg)](https://github.com/hebertcisco/nestjs-techniques-undici/actions/workflows/node.js.yml)
 
-[![Docker Image CI](https://github.com/hebertcisco/nestjs-rest-boilerplate/actions/workflows/docker-image.yml/badge.svg)](https://github.com/hebertcisco/nestjs-rest-boilerplate/actions/workflows/docker-image.yml)
+[![Docker Image CI](https://github.com/hebertcisco/nestjs-techniques-undici/actions/workflows/docker-image.yml/badge.svg)](https://github.com/hebertcisco/nestjs-techniques-undici/actions/workflows/docker-image.yml)
 
 # Basic documentation
 
-## Postgres with Docker
+### Usage example:
 
-> Up an image and run postgres image with docker
+```ts
+// app.module.ts
+import { Module } from '@nestjs/common';
+import { HttpModule } from 'nestjs-undici';
+import crypto from 'node:crypto';
 
-```sh
-docker run --name db_pg -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -d postgres:11
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
+@Module({
+    imports: [
+        HttpModule.register({
+            headers: {
+                'my-header': `foo-bar`,
+            },
+        }),
+    ],
+    controllers: [AppController],
+    providers: [AppService],
+})
+export class AppModule {}
+```
+
+```ts
+// app.service.ts
+import { lastValueFrom } from 'rxjs';
+
+import { Injectable } from '@nestjs/common';
+import { HttpService } from 'nestjs-undici';
+
+@Injectable()
+export class AppService {
+    constructor(private httpService: HttpService) {}
+    public fetchExternalInfo = async () => {
+        const baseURL = 'https://api.github.com';
+        try {
+            const result = this.httpService.request(
+                `${baseURL}/repos/hebertcisco/undici`,
+            );
+
+            const response = await lastValueFrom(result);
+
+            return response.body.json();
+        } catch (error) {
+            throw error;
+        }
+    };
+}
 ```
 
 ## Environment variables
@@ -21,22 +65,7 @@ docker run --name db_pg -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_U
 ```dotenv
 # APP CONFIGURATION
 PORT=3333                  # default port to listen
-APP_SECRET='strong-secret' #x-api-key
 NODE_ENV="development"     #development or production
-
-# POSTGRES DATABASE
-POSTGRES_DATABASE="postgres" # database name
-POSTGRES_HOST="127.0.0.1"       # database host
-POSTGRES_USER="postgres"        # database user
-POSTGRES_PASSWORD="postgres"    # database password
-POSTGRES_PORT=5432              # default
-POSTGRES_SYNC=true              # boolean
-POSTGRES_LOGS=true              # boolean
-
-# REDIS DATABASE
-REDIS_HOST=localhost # redis host
-REDIS_PORT=6379      # redis port
-REDIS_PASSWORD=redis # redis password
 ```
 
 ## Runing the application with docker
