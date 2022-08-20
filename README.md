@@ -55,16 +55,6 @@ export class AppService {
 }
 ```
 
-## Environment variables
-
-> Create a `.env` file in the root directory of your project
-
-```dotenv
-# APP CONFIGURATION
-PORT=3333                  # default port to listen
-NODE_ENV="development"     #development or production
-```
-
 ## Runing the application with docker
 
 ### Run as dev
