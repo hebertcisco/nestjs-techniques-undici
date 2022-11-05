@@ -1,6 +1,6 @@
 {
     "name": "nestjs-techniques-undici",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "",
     "author": "Hebert Barros <hebert@hotbrains.com.br>",
     "private": true,
@@ -45,7 +45,7 @@
         "http-status": "1.5.2",
         "morgan": "1.10.0",
         "nest-shared": "^0.3.9",
-        "nestjs-undici": "^0.0.3",
+        "nestjs-undici": "^0.0.41",
         "qs": "6.10.5",
         "reflect-metadata": "0.1.13",
         "rimraf": "3.0.2",
