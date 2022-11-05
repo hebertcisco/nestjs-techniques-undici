@@ -1,7 +1,7 @@
 {
     "name": "nestjs-techniques-undici",
     "version": "0.0.2",
-    "description": "",
+    "description": "Undici module example",
     "author": "Hebert Barros <hebert@hotbrains.com.br>",
     "private": true,
     "license": "UNLICENSED",
@@ -23,7 +23,10 @@
         "test:cov": "jest --coverage",
         "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
         "test:e2e": "jest --config ./test/jest-e2e.json",
-        "prepare:enviroment": "node scripts/dev-enviroment.cjs"
+        "prepare:enviroment": "node scripts/dev-enviroment.cjs",
+        "preversion": "npm run lint",
+        "version": "npm run format && git add -A src",
+        "postversion": "git push && git push --tags"
     },
     "dependencies": {
         "@nestjs/common": "8.4.7",
