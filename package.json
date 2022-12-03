@@ -1,6 +1,6 @@
 {
     "name": "nestjs-techniques-undici",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Undici module example",
     "author": "Hebert Barros <hebert@hotbrains.com.br>",
     "private": true,
