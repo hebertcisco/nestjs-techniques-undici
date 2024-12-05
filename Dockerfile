@@ -6,6 +6,7 @@ COPY package*.json ./
 
 RUN npm install glob npm@10.9.2
 RUN npm install glob rimraf
+RUN npm install glob @nestjs/cli
 
 RUN npm install --only=development --silent
 
@@ -24,6 +25,7 @@ COPY package*.json ./
 
 RUN npm install glob npm@10.9.2
 RUN npm install glob rimraf
+RUN npm install glob @nestjs/cli
 
 RUN npm install --only=production --silent
 
