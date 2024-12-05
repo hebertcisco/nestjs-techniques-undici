@@ -8,7 +8,7 @@ RUN npm install glob npm@10.9.2
 RUN npm install glob rimraf
 RUN npm install -g @nestjs/cli
 
-RUN npm install --only=development --silent
+RUN npm install
 
 COPY . .
 
@@ -27,7 +27,7 @@ RUN npm install glob npm@10.9.2
 RUN npm install glob rimraf
 RUN npm install -g @nestjs/cli
 
-RUN npm install --only=production --silent
+RUN npm install
 
 COPY . .
 
