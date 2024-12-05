@@ -1,6 +1,6 @@
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/hebertcisco/nestjs-techniques-undici)
 
-[![Docker Image CI](https://github.com/hebertcisco/nestjs-techniques-undici/actions/workflows/docker-image.yml/badge.svg)](https://github.com/hebertcisco/nestjs-techniques-undici/actions/workflows/docker-image.yml)
+[![🚀 Build](https://github.com/hebertcisco/nestjs-techniques-undici/actions/workflows/build.yml/badge.svg)](https://github.com/hebertcisco/nestjs-techniques-undici/actions/workflows/build.yml)
 
 # Basic documentation
 
