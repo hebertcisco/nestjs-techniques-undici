@@ -36,7 +36,7 @@ jobs:
         run: bun install
 
       - name: 🛠️ Build
-        run: bun build
+        run: bun run build
 
   build-docker:
     runs-on: ubuntu-latest
