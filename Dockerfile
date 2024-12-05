@@ -7,8 +7,8 @@ COPY package*.json ./
 RUN npm install glob npm@10.9.2
 RUN npm install glob rimraf
 RUN npm install -g @nestjs/cli
-RUN npm install -D @types/node
 
+RUN npm install --save-dev @types/node
 RUN npm install
 
 COPY . .
@@ -27,8 +27,8 @@ COPY package*.json ./
 RUN npm install glob npm@10.9.2
 RUN npm install glob rimraf
 RUN npm install -g @nestjs/cli
-RUN npm install -D @types/node
 
+RUN npm install --save-dev @types/node
 RUN npm install
 
 COPY . .

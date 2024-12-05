@@ -37,11 +37,3 @@ jobs:
 
       - name: 🛠️ Build
         run: bun run build
-
-  build-docker:
-    runs-on: ubuntu-latest
-    needs: build-tsc-with-bun
-    steps:
-      - uses: actions/checkout@v4
-      - name: 🐳 Build the Docker image
-        run: docker build . --file Dockerfile --tag nestjs-techniques-undici:$(date +%s)
