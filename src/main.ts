@@ -10,12 +10,9 @@ import helmet from 'helmet';
 import compression from 'compression';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
-
-import { PORT } from 'nest-shared/lib/shared/common/constants/global.constants';
-
 import { AppModule } from './app.module';
-import { configService } from './infra/application/application.config';
 import * as pkg from '../package.json';
+import { configService } from 'nest-shared';
 
 dotenv.config();
 
@@ -48,12 +45,16 @@ async function bootstrap(): Promise<void> {
         SwaggerModule.setup('docs', app, document);
     }
 
-    await app.listen(PORT);
+    await app.listen(configService.getPort());
 }
 
 ((): void => {
     bootstrap()
-        .then(() => process.stdout.write(`Listening on port ${PORT}...\n`))
+        .then(() =>
+            process.stdout.write(
+                `Listening on port ${configService.getPort()}...\n`,
+            ),
+        )
         .catch((err) => {
             process.stderr.write(`Error: ${err.message}\n`);
             process.exit(1);
