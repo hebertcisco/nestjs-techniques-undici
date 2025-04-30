@@ -95,7 +95,7 @@
         "nodemon": "2.0.22",
         "prettier": "2.8.8",
         "sucrase": "3.35.0",
-        "supertest": "6.3.4",
+        "supertest": "7.1.0",
         "ts-jest": "28.0.8",
         "ts-loader": "9.5.1",
         "ts-node": "10.9.2",
