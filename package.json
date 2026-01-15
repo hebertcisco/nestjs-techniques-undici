@@ -52,7 +52,7 @@
         "http-status": "1.8.1",
         "morgan": "1.10.1",
         "nest-shared": "^5.0.6",
-        "nestjs-undici": "^0.1.54",
+        "nestjs-undici": "^0.2.57",
         "qs": "6.11.2",
         "reflect-metadata": "0.1.14",
         "rimraf": "3.0.2",
