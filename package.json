@@ -50,7 +50,7 @@
         "express-async-errors": "3.1.1",
         "helmet": "5.1.1",
         "http-status": "1.8.1",
-        "morgan": "1.11.0",
+        "morgan": "1.12.1",
         "nest-shared": "^5.0.6",
         "nestjs-undici": "^0.1.54",
         "qs": "6.15.2",
